@@ -20,28 +20,28 @@ namespace JEU2DES
 
         public void AjouterEntree(string nom, int score)
         {
-            ListeDesEntrees.Add(new Entree(nom, score));   
+            ListeDesEntrees.Add(new Entree(nom, score));
+            ListeDesEntrees.Sort();   
         }
 
         public SortedDictionary<int, string> TopN(int n)
         {
             SortedDictionary<int, string> d = new SortedDictionary<int, string>();
-            //int compteur = 0;
+            int compteur = 0;
 
             foreach (Entree e in ListeDesEntrees)
             {
-                //compteur++;
+                compteur++;
                 d.Add(e.Score, e.Nom);
-                //if (compteur == n) break;
+                if (compteur == n) break;
             }
             return d;
 
-            //TODO
         }
 
         #endregion
 
-        private class Entree
+        private class Entree : IComparable
         {
             #region Champs et Propriétés
             private string _Nom;
@@ -78,6 +78,12 @@ namespace JEU2DES
             public override string ToString()
             {
                 return "Nom du joueur : " + Nom + " Score : " + Score;
+            }
+
+            public int CompareTo(object obj)
+            {
+                //TODO
+                return 0;
             }
 
             #endregion
