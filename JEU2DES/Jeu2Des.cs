@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JEU2DES
 {
-    class Jeu2Des
+    public class Jeu2Des
     {
         private De _De1;
         private De _De2;
