@@ -8,7 +8,7 @@ namespace JEU2DES
 {
     public class De
     {
-        public enum Chiffre { Zero, Un, Deux, Trois, Quatre, Cinq, Six};
+        public enum Chiffre { Zero, Un, Deux, Trois, Quatre, Cinq, Six };
 
         #region Champs et properties
 
@@ -17,27 +17,34 @@ namespace JEU2DES
         public Chiffre Valeur
         {
             get { return _Valeur; }
-            set { _Valeur = value; }
+            private set { _Valeur = value; }
         }
 
 
         #endregion
 
         #region Constructeurs
+
+        public De()
+        {
+
+        }
+
         #endregion
 
-        #region Méthodes
-
-        public Chiffre Lancer()
-        {
-            return (Chiffre)new Random().Next((int)Chiffre.Un, (int)Chiffre.Six);
-        }
 
         #region Méthodes héritées et substituées
         #endregion
 
         #region Méthodes à implementer pour les interfaces
         #endregion
+
+        #region Autres méthodes
+
+        public void Lancer()
+        {
+            Valeur = (Chiffre)new Random().Next((int)Chiffre.Un, (int)Chiffre.Six);
+        }
 
         #endregion
 

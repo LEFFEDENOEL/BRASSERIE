@@ -6,15 +6,31 @@ using System.Threading.Tasks;
 
 namespace JEU2DES
 {
-    class Joueur
+    public class Joueur
     {
         #region Champs et properties
+
+        private string _Nom;
+
+        public string Nom
+        {
+            get { return _Nom; }
+            set { _Nom = value; }
+        }
+
+        private int _Score = 0;
+
+        public int Score
+        {
+            get { return _Score = 0; }
+            set { _Score = value; }
+        }
+
+
         #endregion
 
         #region Constructeurs
         #endregion
-
-        #region Méthodes
 
         #region Méthodes héritées et substituées
         #endregion
@@ -22,6 +38,7 @@ namespace JEU2DES
         #region Méthodes à implementer pour les interfaces
         #endregion
 
+        #region Autres méthodes
         #endregion
     }
 }
