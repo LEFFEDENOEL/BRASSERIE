@@ -8,6 +8,39 @@ namespace JEU2DES
 {
     public class Classement
     {
+        private List<Entree> _ListeDesEntrees;
+
+        private List<Entree> ListeDesEntrees
+        {
+            get { return _ListeDesEntrees; }
+            set { _ListeDesEntrees = value; }
+        }
+
+        #region Methodes
+
+        public void AjouterEntree(string nom, int score)
+        {
+            ListeDesEntrees.Add(new Entree(nom, score));   
+        }
+
+        public SortedDictionary<int, string> TopN(int n)
+        {
+            SortedDictionary<int, string> d = new SortedDictionary<int, string>();
+            //int compteur = 0;
+
+            foreach (Entree e in ListeDesEntrees)
+            {
+                //compteur++;
+                d.Add(e.Score, e.Nom);
+                //if (compteur == n) break;
+            }
+            return d;
+
+            //TODO
+        }
+
+        #endregion
+
         private class Entree
         {
             #region Champs et Propriétés
@@ -33,36 +66,23 @@ namespace JEU2DES
             public Entree() { }
 
             //Constructeur complet
-            public Entree(Classement classement, string nom, int score)
+            public Entree(string nom, int score)
             {
                 Nom = nom;
                 Score = score;
             }
             #endregion
 
-            #region Methodes
-
-            public bool AjouterEntree(string nom, int score)
-            {
-                //TODO
-                return true;
-            }
-
-            public void TopN()
-            {
-                //TODO
-            }
-
-            #endregion
-
             #region Methodes héritées et substituées
 
             public override string ToString()
             {
-                return "Nom du joueur : " + Nom + "Score est égal à : " + Score;
+                return "Nom du joueur : " + Nom + " Score : " + Score;
             }
 
             #endregion
         }
     }
 }
+    
+
