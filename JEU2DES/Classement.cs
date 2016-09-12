@@ -40,7 +40,6 @@ namespace JEU2DES
             }
             #endregion
 
-
             #region Methodes
 
             public bool AjouterEntree(string nom, int score)
