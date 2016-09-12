@@ -15,14 +15,14 @@ namespace JEU2DES
 
             public string Nom
             {
-                get { return _Nom}
+                get { return _Nom; }
                 set { _Nom = value; }
             }
 
             private int _Score;
             public int Score
             {
-                get { return _Score}
+                get { return _Score; }
                 set { _Score = value; }
             }
             #endregion
