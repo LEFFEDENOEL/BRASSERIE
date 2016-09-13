@@ -10,29 +10,29 @@ namespace JEU2DES
     {
 
         
-         Classement _Classement = new classement();
-         Joueur _Nom = new Joueur(Nom);
-        private De _Valeur;
-        private Joueur _Score;
+        // Classement _Classement = new classement();
+        // Joueur _Nom = new Joueur(Nom);
+        //private De _Valeur;
+        //private Joueur _Score;
 
-        static int nombreLancer = 0;
-        static int point = 0;
+        //static int nombreLancer = 0;
+        //static int point = 0;
 
-        public Jeu2Des() { }
+        //public Jeu2Des() { }
 
-        public void JouerPartie()
-        {
-            int n;
-            n = 11;
-            for (nombreLancer = 0; nombreLancer < n; n++)
-            {
-                Joueur.Jouer();
-            }
-        }
+        //public void JouerPartie()
+        //{
+        //    int n;
+        //    n = 11;
+        //    for (nombreLancer = 0; nombreLancer < n; n++)
+        //    {
+        //        Joueur.Jouer();
+        //    }
+        //}
 
-        public void VoirClassement()
-        {
-            VoirClassement.TopN();
-        }
+        //public void VoirClassement()
+        //{
+        //    VoirClassement.TopN();
+        //}
     }
 }
