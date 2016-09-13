@@ -47,7 +47,6 @@ namespace JEU2DES
                 fichier.Close();
             }
         }
-
         #endregion
 
         #region Methodes à implementer pour les interfaces
