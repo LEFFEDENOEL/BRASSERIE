@@ -34,6 +34,8 @@ namespace JEU2DES
         public SortedDictionary<int, string> TopN(int n)
         {
             SortedDictionary<int, string> d = new SortedDictionary<int, string>();
+            ListeDesEntrees.Sort();
+
             int compteur = 0;
 
             foreach (Entree e in ListeDesEntrees)
@@ -45,6 +47,14 @@ namespace JEU2DES
             return d;
 
         }
+
+        public SortedDictionary<int, string> TopN()
+        {
+            return TopN(ListeDesEntrees.Count);
+
+        }
+
+
         //Signatures de Load et Save pour classes dérivées sérialisation
         public abstract void Load();
         public abstract void Save();

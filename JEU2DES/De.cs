@@ -39,6 +39,17 @@ namespace JEU2DES
             return "De de valeur " + Valeur;
         }
 
+        public override bool Equals(object obj)
+        {
+            De d = obj as De;
+            return d != null && d.Valeur == Valeur;
+        }
+
+        public override int GetHashCode()
+        {
+            return (int)this.Valeur;
+        }
+
         #endregion
 
         #region Méthodes à implementer pour les interfaces
@@ -54,9 +65,9 @@ namespace JEU2DES
 
         #region Autres méthodes
 
-        public void Lancer()
+        public Chiffre Lancer()
         {
-            Valeur = (Chiffre)new Random().Next((int)Chiffre.Un, (int)Chiffre.Six);
+            return (Chiffre)new Random().Next((int)Chiffre.Un, (int)Chiffre.Six);
         }
 
         #endregion

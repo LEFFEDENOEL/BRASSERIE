@@ -52,6 +52,18 @@ namespace JEU2DES
         #endregion
 
         #region Autres méthodes
+
+        public int Jouer(De d1, De d2)
+        {
+            for (int i = 1; i < 11; i++)
+            {
+                d1.Lancer();
+                d2.Lancer();
+                Score = (int)d1.Valeur + (int)d2.Valeur;
+            }
+            return Score;
+        }
+
         #endregion
     }
 }

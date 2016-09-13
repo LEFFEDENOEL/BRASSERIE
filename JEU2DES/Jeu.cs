@@ -54,13 +54,12 @@ namespace JEU2DES
         /// <param name="de1">The de1.</param>
         /// <param name="de2">The de2.</param>
         /// <param name="classement">The classement.</param>
-        /// <param name="joueur">The joueur.</param>
-        public Jeu(De de1, De de2, Classement classement, Joueur joueur)
+        
+        public Jeu(De de1, De de2, Classement classement)
         {
             De1 = de1;
             De2 = de2;
-            Classmt = classement;
-            Joueur = joueur; 
+            Classmt = classement; 
         }
         #endregion
 
@@ -69,15 +68,16 @@ namespace JEU2DES
         public int JouerPartie(string nom)
         {
             Joueur = new Joueur(nom);
-            int score = Joueur.Jouer(new De());
+            int score = Joueur.Jouer(De1, De2);
             Classmt.AjouterEntree(nom, score);
             return score;
 
         }
-        //Classement _Classement = new Classement();
+        
         public SortedDictionary<int, string> VoirClassement()
         {
-            return Classement.TopN(Classmt.Count());
+            //TODO faire implémenter IEnumerable à Classement 
+            return Classmt.TopN();
         }
         #endregion
 
