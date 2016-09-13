@@ -67,7 +67,9 @@ namespace JEU2DES
 
         public Chiffre Lancer()
         {
-            return (Chiffre)new Random().Next((int)Chiffre.Un, (int)Chiffre.Six);
+            Chiffre resultatLancer = (Chiffre)new Random().Next((int)Chiffre.Un, (int)Chiffre.Six);
+            Valeur = resultatLancer;
+            return resultatLancer;
         }
 
         #endregion

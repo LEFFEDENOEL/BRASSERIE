@@ -74,9 +74,8 @@ namespace JEU2DES
 
         }
         
-        public SortedDictionary<int, string> VoirClassement()
+        public string VoirClassement()
         {
-            //TODO faire implémenter IEnumerable à Classement 
             return Classmt.TopN();
         }
         #endregion

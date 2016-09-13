@@ -27,28 +27,41 @@ namespace JEU2DES
 
         public void AjouterEntree(string nom, int score)
         {
-            ListeDesEntrees.Add(new Entree(nom, score));
-            ListeDesEntrees.Sort();   
+            bool nouveauNom = true;
+
+            foreach (Entree e in ListeDesEntrees)
+            {
+                if (e.Nom == nom)
+                {
+                    e.Score += score;
+                    nouveauNom = false;
+                    break;
+                }
+            }
+
+            if (nouveauNom) ListeDesEntrees.Add(new Entree(nom, score));
+            
+            
         }
 
-        public SortedDictionary<int, string> TopN(int n)
+        public string TopN(int n)
         {
-            SortedDictionary<int, string> d = new SortedDictionary<int, string>();
-            ListeDesEntrees.Sort();
+            ListeDesEntrees.OrderByDescending(e => e.Score);
 
             int compteur = 0;
+            string topN = "Voici les "+n+" high scores :\n";
 
             foreach (Entree e in ListeDesEntrees)
             {
                 compteur++;
-                d.Add(e.Score, e.Nom);
+                topN += e.Nom + " Score : " + e.Score + "\n";
                 if (compteur == n) break;
             }
-            return d;
+            return topN;
 
         }
 
-        public SortedDictionary<int, string> TopN()
+        public string TopN()
         {
             return TopN(ListeDesEntrees.Count);
 
