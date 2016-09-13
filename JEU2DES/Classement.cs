@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace JEU2DES
 {
+    [Serializable]
     public class Classement
     {
         #region Champs et Propriétés de Classement
