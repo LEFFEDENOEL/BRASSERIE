@@ -44,6 +44,7 @@ namespace JEU2DES
         private class Entree : IComparable
         {
             #region Champs et Propriétés
+
             private string _Nom;
 
             public string Nom
@@ -82,8 +83,10 @@ namespace JEU2DES
 
             public int CompareTo(object obj)
             {
-                //TODO
-                return 0;
+                Entree ent = obj as Entree;
+                if (ent != null)
+                    return Score > ent.Score ? 1 : (Score < ent.Score ? -1 : 0);
+                else return 0;
             }
 
             #endregion
