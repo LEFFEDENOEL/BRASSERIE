@@ -22,7 +22,7 @@ namespace JEU2DES
 
         public int Score
         {
-            get { return _Score = 0; }
+            get { return _Score; }
             set { _Score = value; }
         }
 
@@ -30,9 +30,22 @@ namespace JEU2DES
         #endregion
 
         #region Constructeurs
+
+        public Joueur(string nom)
+        {
+            Nom = nom;
+        }
+
+
         #endregion
 
         #region Méthodes héritées et substituées
+
+        public override string ToString()
+        {
+            return "Joueur " + Nom + " Score" + Score;
+        }
+
         #endregion
 
         #region Méthodes à implementer pour les interfaces

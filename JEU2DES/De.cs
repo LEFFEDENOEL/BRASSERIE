@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JEU2DES
 {
-    public class De
+    public class De : IComparable
     {
         public enum Chiffre { Zero, Un, Deux, Trois, Quatre, Cinq, Six };
 
@@ -32,11 +32,24 @@ namespace JEU2DES
 
         #endregion
 
-
         #region Méthodes héritées et substituées
+
+        public override string ToString()
+        {
+            return "De de valeur " + Valeur;
+        }
+
         #endregion
 
         #region Méthodes à implementer pour les interfaces
+
+        public int CompareTo(object obj)
+        {
+            De d = obj as De;
+            if (d == null) return 1;
+            else return Valeur > d.Valeur ? 1 : (Valeur == d.Valeur ? 0 : -1);
+        }
+
         #endregion
 
         #region Autres méthodes
