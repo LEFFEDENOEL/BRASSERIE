@@ -12,34 +12,6 @@ namespace ConsoleJEU2DES
     {
         static void Main(string[] args)
         {
-            //Sérialisation JSON
-            //Rem classe Classement Sérialisable
-
-            using (Stream fichier = File.Create("sav.json"))
-            {
-                //TODO
-                //List<> le = new List<>();              
-                //DataContractJsonSerializer serializer = new DataContractJsonSerializer(lp.GetType());
-                //serializer.WriteObject(fichier, lp);
-                //fichier.Close();
-
-            }
-
-            //Déserialisation JSON
-
-            using (Stream fichier = File.OpenRead("sav.json"))
-            {
-                //TODO
-                //DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<>));
-                //List<> listeRecup = (List<>)serializer.ReadObject(fichier);
-                //foreach (var v in listeRecup)
-                //{
-                //    Console.Out.WriteLine(v);
-                //}
-                //Console.ReadKey();
-                //fichier.Close();
-            }
-
 
         }
     }
