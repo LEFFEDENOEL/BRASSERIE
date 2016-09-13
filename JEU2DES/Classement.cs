@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace JEU2DES
 {
+    /// <summary>
+    /// Classe mère Classement abstraite dérivée
+    /// </summary>
     [Serializable]
-    public class Classement
+    public abstract class Classement
     {
         #region Champs et Propriétés de Classement
 
@@ -42,6 +45,10 @@ namespace JEU2DES
             return d;
 
         }
+        //Signatures de Load et Save pour classes dérivées sérialisation
+        public abstract void Load();
+        public abstract void Save();
+
         #endregion
 
         /// <summary>
