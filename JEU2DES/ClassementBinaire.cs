@@ -8,9 +8,11 @@ using System.Threading.Tasks;
 
 namespace JEU2DES
 {
+    /// <summary>
+    /// Classe dérivée de Classement pour sérialisation en binaire
+    /// </summary>
     public class ClassementBinaire : Classement
-    {
-     
+    {    
         #region Champs et Propriétés
 
         #endregion
@@ -34,9 +36,8 @@ namespace JEU2DES
 
                     //L'objet doit être casté pour qu'on puisse accéder à ces méthodes
 
-                    GroupePersonne gp = (GroupePersonne)obj;
-
-                    Console.ReadKey();
+                    ClassementBinaire lc = (ClassementBinaire)obj;
+                  
                     fichier.Close();
                 }
             }
@@ -54,8 +55,6 @@ namespace JEU2DES
             }
 
         }
-
-
         #endregion
 
         #region Methodes à implementer pour les interfaces
