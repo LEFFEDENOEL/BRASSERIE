@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Classement.cs" />
     <Compile Include="ClassementBinaire.cs" />
+    <Compile Include="ClassementXml.cs" />
     <Compile Include="De.cs" />
     <Compile Include="Jeu.cs" />
     <Compile Include="Joueur.cs" />

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace JEU2DES
 {
     /// <summary>
-    /// Classe mère Classement abstraite dérivée
+    /// Classe mère Classement abstraite dérivée en ClassementBinaire et ClassementXml
     /// </summary>
     [Serializable]
     public abstract class Classement
