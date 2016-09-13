@@ -8,6 +8,8 @@ namespace JEU2DES
 {
     public class Classement
     {
+        #region Champs et Propriétés de Classement
+
         private List<Entree> _ListeDesEntrees;
 
         private List<Entree> ListeDesEntrees
@@ -15,8 +17,9 @@ namespace JEU2DES
             get { return _ListeDesEntrees; }
             set { _ListeDesEntrees = value; }
         }
+        #endregion
 
-        #region Methodes
+        #region Methodes de Classement
 
         public void AjouterEntree(string nom, int score)
         {
@@ -38,12 +41,14 @@ namespace JEU2DES
             return d;
 
         }
-
         #endregion
 
+        /// <summary>
+        /// Déclaration de la classe Entree dans la classe Classement du fait de la composition
+        /// </summary>
         private class Entree : IComparable
         {
-            #region Champs et Propriétés
+            #region Champs et Propriétés de Entree
 
             private string _Nom;
 
@@ -61,7 +66,7 @@ namespace JEU2DES
             }
             #endregion
 
-            #region Constructeurs
+            #region Constructeurs de Entree
 
             //Constructeur par defaut
             public Entree() { }
@@ -74,13 +79,15 @@ namespace JEU2DES
             }
             #endregion
 
-            #region Methodes héritées et substituées
+            #region Methodes héritées et substituées de Entree
 
+            //Redéfinition de ToString pour afficher l'objet dans son intégralité
             public override string ToString()
             {
                 return "Nom du joueur : " + Nom + " Score : " + Score;
             }
 
+            //Redéfinition de la methode CompareTo pour trier les entrées (car implémentation de IComparable) 
             public int CompareTo(object obj)
             {
                 Entree ent = obj as Entree;
