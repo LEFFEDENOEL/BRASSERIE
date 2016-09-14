@@ -44,15 +44,12 @@ namespace JEU2DES
                 if (compteur == n) break;
             }
             return topN;
-
         }
 
         public string TopN()
         {
             return TopN(ListeDesEntrees.Count);
-
         }
-
 
         //Signatures de Load et Save pour classes dérivées sérialisation
         public abstract void Load();
