@@ -71,7 +71,7 @@ namespace JEU2DES
         /// <summary>
         /// Déclaration de la classe Entree dans la classe Classement du fait de la composition
         /// </summary>
-        protected class Entree : IComparable
+        protected class Entree : IComparable<Entree>
         {
             #region Champs et Propriétés de Entree
 
@@ -113,11 +113,10 @@ namespace JEU2DES
             }
 
             //Redéfinition de la methode CompareTo pour trier les entrées (car implémentation de IComparable) 
-            public int CompareTo(object obj)
+            public int CompareTo(Entree other)
             {
-                Entree ent = obj as Entree;
-                if (ent != null)
-                    return Score > ent.Score ? 1 : (Score < ent.Score ? -1 : 0);
+                if (other != null)
+                    return Score > other.Score ? 1 : (Score < other.Score ? -1 : 0);
                 else return 0;
             }
 

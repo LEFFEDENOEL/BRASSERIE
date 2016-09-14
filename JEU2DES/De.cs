@@ -22,20 +22,17 @@ namespace JEU2DES
 
         private static Random _Random = new Random();
 
-        public Random Random
+        private Random Random
         {
             get { return _Random; }
-            private set { _Random = value; }
+            set { _Random = value; }
         }
 
         #endregion
 
         #region Constructeurs
 
-        public De()
-        {
-
-        }
+        
 
         #endregion
 

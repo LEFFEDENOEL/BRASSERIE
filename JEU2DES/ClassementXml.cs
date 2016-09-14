@@ -28,7 +28,7 @@ namespace JEU2DES
         public override void Load()
         {
             //Utilisation de using car implémentation IDisposable
-            using (Stream fichier = File.OpenRead("sav.xml"))
+            using (Stream fichier = File.OpenRead("saveClassement.xml"))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(ClassementXml));
                 Object obj = serializer.Deserialize(fichier);
@@ -43,7 +43,7 @@ namespace JEU2DES
         public override void Save()
         {
             //Utilisation de using car implémentation de IDisposable
-            using (Stream fichier = File.Create("sav.xml"))
+            using (Stream fichier = File.Create("saveClassement.xml"))
             {                
                 XmlSerializer serializer = new XmlSerializer(this.GetType());
                 serializer.Serialize(fichier, this);

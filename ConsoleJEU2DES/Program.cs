@@ -12,7 +12,24 @@ namespace ConsoleJEU2DES
     {
         static void Main(string[] args)
         {
-            Jeu j = new Jeu(new De(), new De(), new ClassementBinaire());
+            Jeu j;
+
+            j = new Jeu(new ClassementBinaire());
+            
+            //Classement classement;
+            //Console.WriteLine("Persistance ? Tapez :\n" +
+            //                  "- 1 pour du binaire\n" +
+            //                  "- Autre chose pour du XML");
+            //string choixPersistance = Console.ReadLine();
+            //if (choixPersistance == "1")
+            //{
+            //    classement = (Classement(new ClassementBinaire()));
+            //     j = new Jeu(new De(), new De(), );
+            //}
+            //else { 
+            //    j = new Jeu(new De(), new De(), new ClassementXml());
+            //}
+
 
             while (true)
             {

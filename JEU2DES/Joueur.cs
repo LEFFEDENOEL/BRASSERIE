@@ -23,7 +23,7 @@ namespace JEU2DES
         public int Score
         {
             get { return _Score; }
-            set { _Score = value; }
+            private set { _Score = value; }
         }
 
 

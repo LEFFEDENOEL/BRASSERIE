@@ -16,13 +16,13 @@ namespace JEU2DES
         private De _De2;
         private De _De1;
 
-        public De De1
+        private De De1
         {
             get { return _De1; }
             set { _De1 = value; }
         }
 
-        public De De2
+        private De De2
         {
             get { return _De2; }
             set { _De2 = value; }
@@ -33,7 +33,7 @@ namespace JEU2DES
         public  Classement Classmt
         {
             get { return _Classmt; }
-            set { _Classmt = value; }
+            private set { _Classmt = value; }
         }
 
         private Joueur _Joueur;
@@ -55,10 +55,10 @@ namespace JEU2DES
         /// <param name="de2">The de2.</param>
         /// <param name="classement">The classement.</param>
         
-        public Jeu(De de1, De de2, Classement classement)
+        public Jeu(Classement classement)
         {
-            De1 = de1;
-            De2 = de2;
+            De1 = new De();
+            De2 = new De();
             Classmt = classement; 
         }
         #endregion
