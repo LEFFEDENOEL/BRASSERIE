@@ -68,6 +68,7 @@ namespace JEU2DES
 
         #endregion
 
+        [Serializable]
         /// <summary>
         /// Déclaration de la classe Entree dans la classe Classement du fait de la composition
         /// </summary>

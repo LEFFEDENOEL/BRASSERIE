@@ -8,15 +8,22 @@ using System.Xml.Serialization;
 
 namespace JEU2DES
 {
+    [Serializable]
     /// <summary>
     /// Classe dérivée de Classement pour sérialisation en XML
     /// </summary>
-    class ClassementXml : Classement
+    public class ClassementXml : Classement
     {
         #region Champs et Propriétés
         #endregion
 
         #region Constructeurs
+
+        public ClassementXml() : base()
+        {
+
+        }
+
         #endregion
 
         #region Methodes
@@ -27,16 +34,19 @@ namespace JEU2DES
         //Methodes Load et Save pour persistance et récupération de l'objet liste de classement
         public override void Load()
         {
-            //Utilisation de using car implémentation IDisposable
-            using (Stream fichier = File.OpenRead("saveClassement.xml"))
+            if (File.Exists("saveClassement.xml"))
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(ClassementXml));
-                Object obj = serializer.Deserialize(fichier);
+                //Utilisation de using car implémentation IDisposable
+                using (Stream fichier = File.OpenRead("saveClassement.xml"))
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(ClassementXml));
+                    Object obj = serializer.Deserialize(fichier);
 
-                //L'objet doit être casté pour qu'on puisse accéder à ces méthodes
+                    //L'objet doit être casté pour qu'on puisse accéder à ces méthodes
 
-                this.ListeDesEntrees = ((ClassementXml)obj).ListeDesEntrees;
-                fichier.Close();
+                    this.ListeDesEntrees = ((ClassementXml)obj).ListeDesEntrees;
+                    fichier.Close();
+                }
             }
         }
 

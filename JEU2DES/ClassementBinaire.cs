@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace JEU2DES
 {
+    [Serializable]
     /// <summary>
     /// Classe dérivée de Classement pour sérialisation en binaire
     /// </summary>
@@ -18,6 +19,12 @@ namespace JEU2DES
         #endregion
 
         #region Constructeurs
+
+        public ClassementBinaire() : base()
+        {
+
+        }
+
         #endregion
 
         #region Methodes
@@ -39,7 +46,7 @@ namespace JEU2DES
 
                     //L'objet doit être casté pour qu'on puisse accéder à ces méthodes
 
-                    this.ListeDesEntrees = ((ClassementBinaire)obj).ListeDesEntrees;
+                    ListeDesEntrees = (List<Entree>)obj;
                   
                     fichier.Close();
                 }
@@ -48,13 +55,12 @@ namespace JEU2DES
 
         public override void Save()
         {
-            //List<Entree> listClassement = new Entree();
-
+            
             //Utilisation de using car implémentation de IDisposable
             using (Stream fichier = File.Create("saveClassementBinaire.txt"))
             {
                 BinaryFormatter serializer = new BinaryFormatter();
-                serializer.Serialize(fichier, this);
+                serializer.Serialize(fichier, ListeDesEntrees);
                 fichier.Close();
             }
         }
