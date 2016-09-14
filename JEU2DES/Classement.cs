@@ -23,6 +23,15 @@ namespace JEU2DES
         }
         #endregion
 
+        #region Constructeurs
+
+        public Classement()
+        {
+            ListeDesEntrees = new List<Entree>();
+        }
+
+        #endregion
+
         #region Methodes de Classement
 
         public void AjouterEntree(string nom, int score)
@@ -33,7 +42,8 @@ namespace JEU2DES
 
         public string TopN(int n)
         {
-            ListeDesEntrees.OrderByDescending(e => e.Score);
+            ListeDesEntrees.Sort();
+            ListeDesEntrees.Reverse();
 
             int compteur = 0;
             string topN = "Voici les "+n+" high scores :\n";

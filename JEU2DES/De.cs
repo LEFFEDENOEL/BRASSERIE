@@ -20,6 +20,13 @@ namespace JEU2DES
             private set { _Valeur = value; }
         }
 
+        private static Random _Random = new Random();
+
+        public Random Random
+        {
+            get { return _Random; }
+            private set { _Random = value; }
+        }
 
         #endregion
 
@@ -67,7 +74,7 @@ namespace JEU2DES
 
         public Chiffre Lancer()
         {
-            Chiffre resultatLancer = (Chiffre)new Random().Next((int)Chiffre.Un, (int)Chiffre.Six);
+            Chiffre resultatLancer = (Chiffre)Random.Next((int)Chiffre.Un, (int)Chiffre.Six);
             Valeur = resultatLancer;
             return resultatLancer;
         }

@@ -57,11 +57,11 @@ namespace JEU2DES
         {
             for (int i = 1; i < 11; i++)
             {
-                Console.WriteLine(String.Format("{1} ème jet des dés, dé 1 : {2}, dé 2 : {3}", i, d1.Lancer(), d2.Lancer()));
+                Console.WriteLine(String.Format("{0} ème jet des dés, dé 1 : {1}, dé 2 : {2}", i, d1.Lancer(), d2.Lancer()));
                 Score += (((int)d1.Valeur + (int)d2.Valeur) == 7) ? 10 : 0;
             }
 
-            Console.WriteLine(String.Format("Score de {1} pour cette partie: {2}", Nom, Score));
+            Console.WriteLine(String.Format("Score de {0} pour cette partie: {1}", Nom, Score));
             return Score;
         }
 
