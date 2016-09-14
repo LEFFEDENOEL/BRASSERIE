@@ -16,7 +16,7 @@ namespace JEU2DES
 
         private List<Entree> _ListeDesEntrees;
 
-        private List<Entree> ListeDesEntrees
+        protected List<Entree> ListeDesEntrees
         {
             get { return _ListeDesEntrees; }
             set { _ListeDesEntrees = value; }
@@ -39,9 +39,7 @@ namespace JEU2DES
                 }
             }
 
-            if (nouveauNom) ListeDesEntrees.Add(new Entree(nom, score));
-            
-            
+            if (nouveauNom) ListeDesEntrees.Add(new Entree(nom, score));          
         }
 
         public string TopN(int n)
@@ -58,7 +56,6 @@ namespace JEU2DES
                 if (compteur == n) break;
             }
             return topN;
-
         }
 
         public string TopN()
@@ -66,7 +63,6 @@ namespace JEU2DES
             return TopN(ListeDesEntrees.Count);
 
         }
-
 
         //Signatures de Load et Save pour classes dérivées sérialisation
         public abstract void Load();
@@ -77,7 +73,7 @@ namespace JEU2DES
         /// <summary>
         /// Déclaration de la classe Entree dans la classe Classement du fait de la composition
         /// </summary>
-        private class Entree : IComparable
+        protected class Entree : IComparable
         {
             #region Champs et Propriétés de Entree
 
