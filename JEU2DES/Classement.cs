@@ -72,7 +72,7 @@ namespace JEU2DES
         /// <summary>
         /// Déclaration de la classe Entree dans la classe Classement du fait de la composition
         /// </summary>
-        protected class Entree : IComparable<Entree>
+        public class Entree : IComparable<Entree>
         {
             #region Champs et Propriétés de Entree
 
