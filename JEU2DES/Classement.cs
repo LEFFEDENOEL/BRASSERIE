@@ -63,7 +63,6 @@ namespace JEU2DES
         public string TopN()
         {
             return TopN(ListeDesEntrees.Count);
-
         }
 
         //Signatures de Load et Save pour classes dérivées sérialisation
