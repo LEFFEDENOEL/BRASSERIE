@@ -27,21 +27,7 @@ namespace JEU2DES
 
         public void AjouterEntree(string nom, int score)
         {
-            bool nouveauNom = true;
-
-            foreach (Entree e in ListeDesEntrees)
-            {
-                if (e.Nom == nom)
-                {
-                    e.Score += score;
-                    nouveauNom = false;
-                    break;
-                }
-            }
-
-            if (nouveauNom) ListeDesEntrees.Add(new Entree(nom, score));
-            
-            
+            ListeDesEntrees.Add(new Entree(nom, score));   
         }
 
         public string TopN(int n)
