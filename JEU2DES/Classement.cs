@@ -16,7 +16,7 @@ namespace JEU2DES
 
         private List<Entree> _ListeDesEntrees;
 
-        private List<Entree> ListeDesEntrees
+        protected List<Entree> ListeDesEntrees
         {
             get { return _ListeDesEntrees; }
             set { _ListeDesEntrees = value; }
@@ -63,7 +63,7 @@ namespace JEU2DES
         /// <summary>
         /// Déclaration de la classe Entree dans la classe Classement du fait de la composition
         /// </summary>
-        private class Entree : IComparable
+        protected class Entree : IComparable
         {
             #region Champs et Propriétés de Entree
 
