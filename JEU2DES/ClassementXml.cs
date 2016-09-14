@@ -31,19 +31,22 @@ namespace JEU2DES
             using (Stream fichier = File.OpenRead("sav.xml"))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(ClassementXml));
-                Object obj = serializer.Deserialize(fichier);           
+                Object obj = serializer.Deserialize(fichier);
+
+                //L'objet doit être casté pour qu'on puisse accéder à ces méthodes
+
+                this.ListeDesEntrees = ((ClassementXml)obj).ListeDesEntrees;
                 fichier.Close();
             }
         }
 
         public override void Save()
         {
-            //Utilisation de using car implémentation IDisposable
+            //Utilisation de using car implémentation de IDisposable
             using (Stream fichier = File.Create("sav.xml"))
-            {
-                ClassementXml c = new ClassementXml();
-                XmlSerializer serializer = new XmlSerializer(c.GetType());
-                serializer.Serialize(fichier, c);
+            {                
+                XmlSerializer serializer = new XmlSerializer(this.GetType());
+                serializer.Serialize(fichier, this);
                 fichier.Close();
             }
         }

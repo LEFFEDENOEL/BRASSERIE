@@ -26,19 +26,20 @@ namespace JEU2DES
         #region Methodes héritées et substituées
 
         //Methodes Load et Save pour persistance et récupération de l'objet liste de classement
+
         public override void Load()
         {
-            if (File.Exists("sav.txt"))
+            if (File.Exists("saveClassementBinaire.txt"))
             {
                 //Utilisation de using car implémentation IDisposable
-                using (Stream fichier = File.OpenRead("sav.txt"))
+                using (Stream fichier = File.OpenRead("saveClassementBinaire.txt"))
                 {
                     BinaryFormatter serializer = new BinaryFormatter();
                     Object obj = serializer.Deserialize(fichier);
 
                     //L'objet doit être casté pour qu'on puisse accéder à ces méthodes
 
-                    ClassementBinaire lc = (ClassementBinaire)obj;
+                    this.ListeDesEntrees = ((ClassementBinaire)obj).ListeDesEntrees;
                   
                     fichier.Close();
                 }
@@ -47,16 +48,15 @@ namespace JEU2DES
 
         public override void Save()
         {
-            List<Entree> listClassement = new Entree();
+            //List<Entree> listClassement = new Entree();
 
-            //Utilisation de using car implémentation IDisposable
-            using (Stream fichier = File.Create("sav.txt"))
+            //Utilisation de using car implémentation de IDisposable
+            using (Stream fichier = File.Create("saveClassementBinaire.txt"))
             {
                 BinaryFormatter serializer = new BinaryFormatter();
-                serializer.Serialize(fichier, listClassement);
+                serializer.Serialize(fichier, this);
                 fichier.Close();
             }
-
         }
         #endregion
 
