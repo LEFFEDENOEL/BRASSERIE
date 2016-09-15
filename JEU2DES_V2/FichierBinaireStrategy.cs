@@ -16,6 +16,8 @@ namespace JEU2DES_V2
     {
         #region Champs et Propriétés
 
+        public List<Entree> ListeDesEntrees { get; private set; }
+
         #endregion
 
         #region Constructeurs
@@ -47,7 +49,7 @@ namespace JEU2DES_V2
                     //L'objet doit être casté pour qu'on puisse accéder à ces méthodes
 
                     ListeDesEntrees = (List<Entree>)obj;
-                    
+
 
                     fichier.Close();
                 }
