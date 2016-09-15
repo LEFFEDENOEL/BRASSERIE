@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="JEU2DES_V2.Classement">
+    <Position X="5.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEBAAAAQAAAAAAAAAAAAABAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Classement.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_IStrategyPersistable" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="JEU2DES_V2.De">
+    <Position X="10.75" Y="2" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="JEU2DES_V2.De.Chiffre" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>De.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQEgAAAAAAIAgAABYQAAAAAAAAAAAA=</HashCode>
+      <FileName>De.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="JEU2DES_V2.FichierBinaireStrategy">
+    <Position X="0.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FichierBinaireStrategy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="JEU2DES_V2.FichierXmlStrategy">
+    <Position X="3.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FichierXmlStrategy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="JEU2DES_V2.Joueur">
+    <Position X="8" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAgEAAAAAAAAACAAAgAAAAAAAAAAAEA=</HashCode>
+      <FileName>Joueur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JEU2DES_V2.Entree">
+    <Position X="5.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAwEAAAAAAAAACAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entree.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="JEU2DES_V2.Jeu">
+    <Position X="8" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACSgAAACEAIAAAAAAAAQAAAAAIAAAAAAACAA=</HashCode>
+      <FileName>Jeu.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_De1" />
+      <Field Name="_De2" />
+      <Field Name="_Classmt" />
+      <Field Name="_Joueur" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="JEU2DES_V2.IStrategyPersistable">
+    <Position X="2" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IStrategyPersistable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -41,7 +41,7 @@ namespace JEU2DES_V2
                 //Utilisation de using car implémentation IDisposable
                 using (Stream fichier = File.OpenRead("saveClassement.xml"))
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(List<Entree>));
+                    XmlSerializer serializer = new XmlSerializer(typeof(Classement));
                     Object obj = serializer.Deserialize(fichier);
 
                     //L'objet doit être casté pour qu'on puisse accéder à ces méthodes
@@ -50,7 +50,7 @@ namespace JEU2DES_V2
                     return (Classement)(obj);                  
                 }
             }
-            else return null;
+            else return new Classement();
         }
 
         public void Save(Classement classement)
@@ -58,7 +58,7 @@ namespace JEU2DES_V2
             //Utilisation de using car implémentation de IDisposable
             using (Stream fichier = File.Create("saveClassement.xml"))
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(List<Entree>));
+                XmlSerializer serializer = new XmlSerializer(typeof(Classement));
                 serializer.Serialize(fichier, classement);
                 fichier.Close();
             }

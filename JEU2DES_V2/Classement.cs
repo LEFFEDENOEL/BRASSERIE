@@ -10,24 +10,37 @@ namespace JEU2DES_V2
     /// Classe mère Classement abstraite dérivée en ClassementBinaire et ClassementXml
     /// </summary>
     [Serializable]
-    public abstract class Classement
+    public  class Classement
     {
         #region Champs et Propriétés de Classement
 
         private List<Entree> _ListeDesEntrees;
-
+  
         protected List<Entree> ListeDesEntrees
         {
             get { return _ListeDesEntrees; }
             set { _ListeDesEntrees = value; }
         }
+
+        private IStrategyPersistable _IStrategyPersistable;
+
+        protected IStrategyPersistable IStrategyPersistable
+        {
+            get { return _IStrategyPersistable; }
+            set { _IStrategyPersistable = value; }
+        }
         #endregion
 
         #region Constructeurs
 
+        //Constructeur par défaut
         public Classement()
         {
             ListeDesEntrees = new List<Entree>();
+        }
+        public Classement(IStrategyPersistable iStrategyPersistable)
+        {
+            IStrategyPersistable = iStrategyPersistable;
         }
 
         #endregion
@@ -62,12 +75,16 @@ namespace JEU2DES_V2
             return TopN(ListeDesEntrees.Count);
         }
 
-        //Signatures de Load et Save pour classes dérivées sérialisation
-        public abstract void Load();
-        public abstract void Save();
+        public Classement Load()
+        {
+            return IStrategyPersistable.Load();
+        }
 
-        #endregion
+        public void Save(Classement classement)
+        {
+            IStrategyPersistable.Save(classement);
+        }
 
-        
+        #endregion     
     }
 }

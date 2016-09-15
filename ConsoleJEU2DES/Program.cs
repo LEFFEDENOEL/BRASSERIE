@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using JEU2DES;
+//using JEU2DES;
+using JEU2DES_V2;
 
 namespace ConsoleJEU2DES
 {
@@ -22,13 +23,14 @@ namespace ConsoleJEU2DES
 
             string choixPersistance = Console.ReadLine();
 
-            if (choixPersistance == "1") classement = new ClassementBinaire();
-            else classement = new ClassementXml();
+            if (choixPersistance == "1") classement = new Classement(new FichierBinaireStrategy());
+            else classement = new Classement(new FichierXmlStrategy());
 
-            classement.Load();
+            //Classement classement = Load();
 
             Jeu j;
-            j = new Jeu(classement);
+            Classement cl = classement.Load();
+            j = new Jeu(cl);
 
 
             while (true)
@@ -53,7 +55,7 @@ namespace ConsoleJEU2DES
                 }
             }
 
-            classement.Save();
+            classement.Save(cl);
         }
     }
 }
