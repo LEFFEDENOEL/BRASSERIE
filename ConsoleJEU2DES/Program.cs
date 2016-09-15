@@ -22,9 +22,13 @@ namespace ConsoleJEU2DES
                               "- Autre chose pour du XML");
 
             string choixPersistance = Console.ReadLine();
+            int choice;
+            Int32.TryParse(choixPersistance, out choice);
 
-            if (choixPersistance == "1") classement = new Classement(new FichierBinaireStrategy());
-            else classement = new Classement(new FichierXmlStrategy());
+            
+            IStrategyPersistable objet = Factory.IStrategyPersistable(choice);
+            classement = new Classement(objet);
+          
 
             
             Jeu j;
