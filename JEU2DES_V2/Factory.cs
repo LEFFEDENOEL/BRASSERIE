@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace JEU2DES_V2
 {
-    
+    public enum ChoixPersistance { Binaire = 1, XML}
 
     public abstract class Factory
     {
-        public static IStrategyPersistable IStrategyPersistable(int choice)
+        public static IStrategyPersistable IStrategyPersistable(ChoixPersistance choice)
         {
             IStrategyPersistable objPersistable = null;
 
             switch (choice)
             {
                 //Binary case
-                case 1:
+                case ChoixPersistance.Binaire:
                     objPersistable = new FichierBinaireStrategy();
                     break;
                 //XML case
-                case 2:
+                default:
                     objPersistable = new FichierXmlStrategy();
                     break;
             }

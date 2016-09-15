@@ -26,7 +26,7 @@ namespace ConsoleJEU2DES
             Int32.TryParse(choixPersistance, out choice);
 
             
-            IStrategyPersistable objet = Factory.IStrategyPersistable(choice);
+            IStrategyPersistable objet = Factory.IStrategyPersistable((ChoixPersistance)choice);
             classement = new Classement(objet);
           
 
