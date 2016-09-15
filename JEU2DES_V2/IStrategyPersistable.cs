@@ -8,7 +8,8 @@ namespace JEU2DES_V2
 {
     public interface IStrategyPersistable
     {
-        void Save();
-        void Load();
+
+        void Save(Classement classement);
+        Classement Load();
     }
 }
