@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JEU2DES\JEU2DES.csproj">
+      <Project>{56e551c4-aea8-415d-b84e-0dd2b9db9228}</Project>
+      <Name>JEU2DES</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JEU2DES_V2\JEU2DES_V2.csproj">
       <Project>{f6a89e96-50ea-488b-8e11-cdee56da5c90}</Project>
       <Name>JEU2DES_V2</Name>

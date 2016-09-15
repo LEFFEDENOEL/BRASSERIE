@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using JEU2DES_V2;
+using JEU2DES;
 
 namespace ConsoleJEU2DES
 {

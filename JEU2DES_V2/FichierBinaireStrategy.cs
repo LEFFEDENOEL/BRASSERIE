@@ -10,20 +10,15 @@ namespace JEU2DES_V2
 {
     [Serializable]
     /// <summary>
-    /// Classe dérivée de Classement pour sérialisation en binaire
+    /// Classe implémentant la persistance dans un fichier binaire 
     /// </summary>
-    public class ClassementBinaire : Classement
+    public class FichierBinaireStrategy : IStrategyPersistable
     {
         #region Champs et Propriétés
 
         #endregion
 
         #region Constructeurs
-
-        public ClassementBinaire() : base()
-        {
-
-        }
 
         #endregion
 
@@ -32,9 +27,14 @@ namespace JEU2DES_V2
 
         #region Methodes héritées et substituées
 
+
+        #endregion
+
+        #region Methodes à implementer pour les interfaces
+
         //Methodes Load et Save pour persistance et récupération de l'objet liste de classement
 
-        public override void Load()
+        public void Load()
         {
             if (File.Exists("saveClassementBinaire.txt"))
             {
@@ -42,18 +42,19 @@ namespace JEU2DES_V2
                 using (Stream fichier = File.OpenRead("saveClassementBinaire.txt"))
                 {
                     BinaryFormatter serializer = new BinaryFormatter();
-                    Object obj = serializer.Deserialize(fichier);
+                    object obj = serializer.Deserialize(fichier);
 
                     //L'objet doit être casté pour qu'on puisse accéder à ces méthodes
 
                     ListeDesEntrees = (List<Entree>)obj;
+                    
 
                     fichier.Close();
                 }
             }
         }
 
-        public override void Save()
+        public void Save()
         {
 
             //Utilisation de using car implémentation de IDisposable
@@ -64,9 +65,7 @@ namespace JEU2DES_V2
                 fichier.Close();
             }
         }
-        #endregion
 
-        #region Methodes à implementer pour les interfaces
         #endregion
 
     }

@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classement.cs" />
-    <Compile Include="ClassementBinaire.cs" />
+    <Compile Include="FichierBinaireStrategy.cs" />
     <Compile Include="ClassementXML.cs" />
     <Compile Include="De.cs" />
     <Compile Include="Entree.cs" />
