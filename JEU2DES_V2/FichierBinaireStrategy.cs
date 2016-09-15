@@ -16,8 +16,6 @@ namespace JEU2DES_V2
     {
         #region Champs et Propriétés
 
-        public List<Entree> ListeDesEntrees { get; private set; }
-
         #endregion
 
         #region Constructeurs
@@ -36,7 +34,7 @@ namespace JEU2DES_V2
 
         //Methodes Load et Save pour persistance et récupération de l'objet liste de classement
 
-        public void Load()
+        public Classement Load()
         {
             if (File.Exists("saveClassementBinaire.txt"))
             {
@@ -46,24 +44,23 @@ namespace JEU2DES_V2
                     BinaryFormatter serializer = new BinaryFormatter();
                     object obj = serializer.Deserialize(fichier);
 
-                    //L'objet doit être casté pour qu'on puisse accéder à ces méthodes
-
-                    ListeDesEntrees = (List<Entree>)obj;
-
-
                     fichier.Close();
+
+                    //L'objet doit être casté pour qu'on puisse accéder à ces méthodes
+                    return (Classement)obj;
                 }
             }
+            else return null;
         }
 
-        public void Save()
+        public void Save(Classement classement)
         {
 
             //Utilisation de using car implémentation de IDisposable
             using (Stream fichier = File.Create("saveClassementBinaire.txt"))
             {
                 BinaryFormatter serializer = new BinaryFormatter();
-                serializer.Serialize(fichier, ListeDesEntrees);
+                serializer.Serialize(fichier, classement);
                 fichier.Close();
             }
         }

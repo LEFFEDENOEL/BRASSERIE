@@ -50,7 +50,7 @@ namespace JEU2DES_V2
                     return (Classement)(obj);                  
                 }
             }
-            return null;
+            else return null;
         }
 
         public void Save(Classement classement)
