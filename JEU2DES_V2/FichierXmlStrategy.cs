@@ -11,19 +11,19 @@ namespace JEU2DES_V2
 {
     [Serializable]
     /// <summary>
-    /// Classe dérivée de Classement pour sérialisation en XML
+    /// Classe implémentant l'interface IStrategyPersistable
     /// </summary>
-    public class ClassementXml : Classement
+    public class FichierXmlStrategy : IStrategyPersistable
     {
+      
         #region Champs et Propriétés
+        public List<Entree> ListeDesEntrees { get; private set; }
+
         #endregion
 
         #region Constructeurs
 
-        public ClassementXml() : base()
-        {
-
-        }
+        public FichierXmlStrategy(){}
 
         #endregion
 
@@ -32,8 +32,12 @@ namespace JEU2DES_V2
 
         #region Methodes héritées et substituées
 
+        #endregion
+
+        #region Methodes à implementer pour les interfaces
+
         //Methodes Load et Save pour persistance et récupération de l'objet liste de classement
-        public override void Load()
+        public void Load()
         {
             if (File.Exists("saveClassement.xml"))
             {
@@ -51,7 +55,7 @@ namespace JEU2DES_V2
             }
         }
 
-        public override void Save()
+        public void Save()
         {
             //Utilisation de using car implémentation de IDisposable
             using (Stream fichier = File.Create("saveClassement.xml"))
@@ -61,9 +65,6 @@ namespace JEU2DES_V2
                 fichier.Close();
             }
         }
-        #endregion
-
-        #region Methodes à implementer pour les interfaces
         #endregion
 
     }
