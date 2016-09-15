@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
+
 
 namespace JEU2DES
 {
     /// <summary>
     /// Classe mère Classement abstraite dérivée en ClassementBinaire et ClassementXml
     /// </summary>
-    [Serializable]
+    [Serializable]  
     public abstract class Classement
     {
         #region Champs et Propriétés de Classement
@@ -68,7 +71,7 @@ namespace JEU2DES
 
         #endregion
 
-        [Serializable]
+
         /// <summary>
         /// Déclaration de la classe Entree dans la classe Classement du fait de la composition
         /// </summary>
