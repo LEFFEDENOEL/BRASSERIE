@@ -26,11 +26,10 @@ namespace ConsoleJEU2DES
             if (choixPersistance == "1") classement = new Classement(new FichierBinaireStrategy());
             else classement = new Classement(new FichierXmlStrategy());
 
-            //Classement classement = Load();
-
+            
             Jeu j;
-            Classement cl = classement.Load();
-            j = new Jeu(cl);
+            Classement clt = classement.Load();
+            j = new Jeu(clt);
 
 
             while (true)
@@ -55,7 +54,7 @@ namespace ConsoleJEU2DES
                 }
             }
 
-            classement.Save(cl);
+            classement.Save(clt);
         }
     }
 }

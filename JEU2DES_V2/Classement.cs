@@ -16,7 +16,7 @@ namespace JEU2DES_V2
 
         private List<Entree> _ListeDesEntrees;
   
-        protected List<Entree> ListeDesEntrees
+        public List<Entree> ListeDesEntrees
         {
             get { return _ListeDesEntrees; }
             set { _ListeDesEntrees = value; }
@@ -24,7 +24,7 @@ namespace JEU2DES_V2
 
         private IStrategyPersistable _IStrategyPersistable;
 
-        protected IStrategyPersistable IStrategyPersistable
+        private IStrategyPersistable IStrategyPersistable
         {
             get { return _IStrategyPersistable; }
             set { _IStrategyPersistable = value; }
