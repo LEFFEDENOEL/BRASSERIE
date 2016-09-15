@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace JEU2DES_V2
 {
+    
+
     public abstract class Factory
     {
         public static IStrategyPersistable IStrategyPersistable(int choice)
