@@ -61,6 +61,13 @@ namespace JEU2DES_V2
             De2 = new De();
             Classmt = classement;
         }
+
+        public Jeu()
+        {
+            De1 = new De();
+            De2 = new De();
+            Classmt = new Classement();
+        }
         #endregion
 
         #region Méthodes

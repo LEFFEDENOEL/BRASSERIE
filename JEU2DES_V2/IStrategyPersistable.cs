@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace JEU2DES_V2
 {
-    public interface IStrategyPersistable
+    public interface IStrategyPersistable<T>
     {
-        void Save(Classement classement);
-        Classement Load();
+        bool Save(string nomFichier, T t);
+        bool Load(string nomFichier, out T t);
     }
 }

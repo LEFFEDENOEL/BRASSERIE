@@ -12,7 +12,7 @@ namespace JEU2DES_V2
     /// <summary>
     /// Classe implémentant la persistance dans un fichier binaire 
     /// </summary>
-    public class FichierBinaireStrategy : IStrategyPersistable
+    public class FichierBinaireStrategy<T> : IStrategyPersistable<T>
     {
         #region Champs et Propriétés
 
@@ -32,36 +32,46 @@ namespace JEU2DES_V2
 
         #region Methodes à implementer pour les interfaces
 
-        //Methodes Load et Save pour persistance et récupération de l'objet liste de classement
+        //Methodes Load et Save pour persistance et récupération de l'objet
 
-        public Classement Load()
+        public bool Load(string nomFichier, out T t)
         {
-            if (File.Exists("saveClassementBinaire.txt"))
+            if (File.Exists(nomFichier + ".txt"))
             {
                 //Utilisation de using car implémentation IDisposable
-                using (Stream fichier = File.OpenRead("saveClassementBinaire.txt"))
+                using (Stream fichier = File.OpenRead(nomFichier + ".txt"))
                 {
                     BinaryFormatter serializer = new BinaryFormatter();
                     object obj = serializer.Deserialize(fichier);
 
                     fichier.Close();
-
-                    //L'objet doit être casté pour qu'on puisse accéder à ces méthodes
-                    return (Classement)obj;
+                    t = (T)(obj);
+                    return true;
                 }
             }
-            else return new Classement();
+            else
+            {
+                t = default(T);
+                return false;
+            }
         }
 
-        public void Save(Classement classement)
+        public bool Save(string nomFichier, T t)
         {
-
-            //Utilisation de using car implémentation de IDisposable
-            using (Stream fichier = File.Create("saveClassementBinaire.txt"))
+            try
             {
-                BinaryFormatter serializer = new BinaryFormatter();
-                serializer.Serialize(fichier, classement);
-                fichier.Close();
+                //Utilisation de using car implémentation de IDisposable
+                using (Stream fichier = File.Create(nomFichier + ".txt"))
+                {
+                    BinaryFormatter serializer = new BinaryFormatter();
+                    serializer.Serialize(fichier, t);
+                    fichier.Close();
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
             }
         }
 

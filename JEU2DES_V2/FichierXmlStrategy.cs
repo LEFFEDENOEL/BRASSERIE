@@ -13,15 +13,15 @@ namespace JEU2DES_V2
     /// <summary>
     /// Classe implémentant l'interface IStrategyPersistable
     /// </summary>
-    public class FichierXmlStrategy : IStrategyPersistable
-    {    
+    public class FichierXmlStrategy<T> : IStrategyPersistable<T>
+    {
         #region Champs et Propriétés       
         #endregion
 
         #region Constructeurs
 
         //Constructeur par défaut
-        public FichierXmlStrategy(){}
+        public FichierXmlStrategy() { }
 
         #endregion
 
@@ -33,34 +33,47 @@ namespace JEU2DES_V2
 
         #region Methodes à implementer pour les interfaces
 
-        //Methodes Load et Save pour persistance et récupération de l'objet liste de classement
-        public Classement Load()
+        //Methodes Load et Save pour persistance et récupération de l'objet
+        public bool Load(string nomFichier, out T t)
         {
-            if (File.Exists("saveClassement.xml"))
+            if (File.Exists(nomFichier + ".xml"))
             {
                 //Utilisation de using car implémentation IDisposable
-                using (Stream fichier = File.OpenRead("saveClassement.xml"))
+                using (Stream fichier = File.OpenRead(nomFichier + ".xml"))
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(Classement));
+                    XmlSerializer serializer = new XmlSerializer(typeof(T));
                     Object obj = serializer.Deserialize(fichier);
 
                     //L'objet doit être casté pour qu'on puisse accéder à ces méthodes
 
                     fichier.Close();
-                    return (Classement)(obj);                  
+                    t = (T)(obj);
+                    return true;
                 }
             }
-            else return new Classement();
+            else
+            {
+                t = default(T);
+                return false;
+            }
         }
 
-        public void Save(Classement classement)
+        public bool Save(string nomFichier, T t)
         {
-            //Utilisation de using car implémentation de IDisposable
-            using (Stream fichier = File.Create("saveClassement.xml"))
+            try
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(Classement));
-                serializer.Serialize(fichier, classement);
-                fichier.Close();
+                //Utilisation de using car implémentation de IDisposable
+                using (Stream fichier = File.Create(nomFichier + ".xml"))
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(T));
+                    serializer.Serialize(fichier, t);
+                    fichier.Close();
+
+                    return true;
+                }
+            } catch (Exception e)
+            {
+                return false;
             }
         }
         #endregion

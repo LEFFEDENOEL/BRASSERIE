@@ -8,7 +8,7 @@ namespace JEU2DES_V2
 {
     public class De : IComparable
     {
-        public enum Chiffre { Zero, Un, Deux, Trois, Quatre, Cinq, Six };
+        public enum Chiffre { Zero, Un, Deux, Trois, Quatre, Cinq, Six, Sept };
 
         #region Champs et properties
 
@@ -71,7 +71,7 @@ namespace JEU2DES_V2
 
         public Chiffre Lancer()
         {
-            Chiffre resultatLancer = (Chiffre)Random.Next((int)Chiffre.Un, (int)Chiffre.Six);
+            Chiffre resultatLancer = (Chiffre)Random.Next((int)Chiffre.Un, (int)Chiffre.Sept);
             Valeur = resultatLancer;
             return resultatLancer;
         }

@@ -22,9 +22,9 @@ namespace JEU2DES_V2
             set { _ListeDesEntrees = value; }
         }
 
-        private IStrategyPersistable _IStrategyPersistable;
+        private IStrategyPersistable<Classement> _IStrategyPersistable;
 
-        private IStrategyPersistable IStrategyPersistable
+        private IStrategyPersistable<Classement> IStrategyPersistable
         {
             get { return _IStrategyPersistable; }
             set { _IStrategyPersistable = value; }
@@ -38,7 +38,7 @@ namespace JEU2DES_V2
         {
             ListeDesEntrees = new List<Entree>();
         }
-        public Classement(IStrategyPersistable iStrategyPersistable)
+        public Classement(IStrategyPersistable<Classement> iStrategyPersistable)
         {
             IStrategyPersistable = iStrategyPersistable;
         }
@@ -75,14 +75,14 @@ namespace JEU2DES_V2
             return TopN(ListeDesEntrees.Count);
         }
 
-        public Classement Load()
+        public bool Load(string nomFichier, out Classement c)
         {
-            return IStrategyPersistable.Load();
+            if (IStrategyPersistable.Load(nomFichier, out c)) { return true; } else { return false; }
         }
 
-        public void Save(Classement classement)
+        public bool Save(string nomFichier, Classement classement)
         {
-            IStrategyPersistable.Save(classement);
+            return IStrategyPersistable.Save(nomFichier, classement);
         }
 
         #endregion     

@@ -10,19 +10,19 @@ namespace JEU2DES_V2
 
     public abstract class Factory
     {
-        public static IStrategyPersistable IStrategyPersistable(ChoixPersistance choice)
+        public static IStrategyPersistable<Classement> IStrategyPersistable(ChoixPersistance choice)
         {
-            IStrategyPersistable objPersistable = null;
+            IStrategyPersistable<Classement> objPersistable = null;
 
             switch (choice)
             {
                 //Binary case
                 case ChoixPersistance.Binaire:
-                    objPersistable = new FichierBinaireStrategy();
+                    objPersistable = new FichierBinaireStrategy<Classement>();
                     break;
                 //XML case
                 default:
-                    objPersistable = new FichierXmlStrategy();
+                    objPersistable = new FichierXmlStrategy<Classement>();
                     break;
             }
             return objPersistable;

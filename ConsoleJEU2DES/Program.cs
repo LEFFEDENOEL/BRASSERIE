@@ -13,7 +13,7 @@ namespace ConsoleJEU2DES
     {
         static void Main(string[] args)
         {
-            
+
 
             Classement classement;
 
@@ -25,40 +25,48 @@ namespace ConsoleJEU2DES
             int choice;
             Int32.TryParse(choixPersistance, out choice);
 
-            
-            IStrategyPersistable objet = Factory.IStrategyPersistable((ChoixPersistance)choice);
+
+            IStrategyPersistable<Classement> objet = Factory.IStrategyPersistable((ChoixPersistance)choice);
             classement = new Classement(objet);
-          
 
-            
+
+
             Jeu j;
-            Classement clt = classement.Load();
-            j = new Jeu(clt);
 
-
-            while (true)
+            Classement clt;
+            if (classement.Load("saveClassement", out clt))
             {
-                Console.WriteLine("Que souhaitez vous faire ? Tapez :\n"+
-                                    "- 1 pour jouer\n" +
-                                    "- 2 pour visualiser les scores\n" +
-                                    "- Autre chose pour sortir du jeu");
-
-                string choix = Console.ReadLine();
-
-                if (choix != "1" && choix != "2") break;
-                else if (choix == "1")
-                {
-                    Console.WriteLine("Nom du joueur ?");
-                    string nom = Console.ReadLine();
-                    j.JouerPartie(nom);
-                }
-                else
-                {
-                    Console.WriteLine(j.VoirClassement());
-                }
+                j = new Jeu(clt);
+            }
+            else
+            {
+                j = new Jeu();
             }
 
-            classement.Save(clt);
+            while (true)
+                {
+                    Console.WriteLine("Que souhaitez vous faire ? Tapez :\n" +
+                                        "- 1 pour jouer\n" +
+                                        "- 2 pour visualiser les scores\n" +
+                                        "- Autre chose pour sortir du jeu");
+
+                    string choix = Console.ReadLine();
+
+                    if (choix != "1" && choix != "2") break;
+                    else if (choix == "1")
+                    {
+                        Console.WriteLine("Nom du joueur ?");
+                        string nom = Console.ReadLine();
+                        j.JouerPartie(nom);
+                    }
+                    else
+                    {
+                        Console.WriteLine(j.VoirClassement());
+                    }
+                }
+            
+
+            if (!classement.Save("saveClassement", j.Classmt)) Console.WriteLine("Problème lors du sauvetage du classement");
         }
     }
 }
