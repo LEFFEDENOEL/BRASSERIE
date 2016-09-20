@@ -13,7 +13,8 @@ namespace ConsoleJEU2DES
     {
         static void Main(string[] args)
         {
-
+            //IStrategyPersistable<Jeu> obj = (IStrategyPersistable<Jeu>)new Jeu();
+            
 
             Classement classement;
 
@@ -27,14 +28,16 @@ namespace ConsoleJEU2DES
 
 
             IStrategyPersistable<Classement> objet = Factory.IStrategyPersistable((ChoixPersistance)choice);
+
+
             classement = new Classement(objet);
 
 
 
             Jeu j;
-
+            
             Classement clt;
-            if (classement.Load("saveClassement", out clt))
+            if (classement.Load("Classement", out clt))
             {
                 j = new Jeu(clt);
             }
@@ -66,7 +69,20 @@ namespace ConsoleJEU2DES
                 }
             
 
-            if (!classement.Save("saveClassement", j.Classmt)) Console.WriteLine("Problème lors du sauvetage du classement");
+            if (!classement.Save("Classement", j.Classmt)) Console.WriteLine("Problème lors de la sauvegarde du classement");
+            //Jeu j = new Jeu();
+            if (new FichierBinaireStrategy<Jeu>().Save("testJeu", j))
+            {
+                Console.WriteLine("Le jeu a été sauvé en binaire");
+            }
+            else Console.WriteLine("Le jeu n'a pas été sauvé en binaire");
+
+            if (new FichierXmlStrategy<Jeu>().Save("testJeu", j))
+            {
+                Console.WriteLine("Le jeu a été sauvé en XML");
+            }
+            else Console.WriteLine("Le jeu n'a pas été sauvé en XML");
+            Console.ReadKey();
         }
     }
 }
