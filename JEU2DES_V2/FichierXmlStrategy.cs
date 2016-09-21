@@ -73,6 +73,7 @@ namespace JEU2DES_V2
                 }
             } catch (Exception e)
             {
+                File.Delete(nomFichier + ".xml");
                 return false;
             }
         }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace JEU2DES_V2
 {
+    [Serializable]
     public class De : IComparable
     {
         public enum Chiffre { Zero, Un, Deux, Trois, Quatre, Cinq, Six, Sept };

@@ -71,6 +71,7 @@ namespace JEU2DES_V2
             }
             catch (Exception e)
             {
+                File.Delete(nomFichier + ".txt");
                 return false;
             }
         }
