@@ -34,7 +34,7 @@ namespace JEU2DES_V2
         public Classement Classmt
         {
             get { return _Classmt; }
-            private set { _Classmt = value; }
+            set { _Classmt = value; }
         }
 
         private Joueur _Joueur;

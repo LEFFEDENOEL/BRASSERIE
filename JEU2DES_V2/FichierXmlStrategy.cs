@@ -13,7 +13,7 @@ namespace JEU2DES_V2
     /// <summary>
     /// Classe implémentant l'interface IStrategyPersistable
     /// </summary>
-    public class FichierXmlStrategy<T> : IStrategyPersistable<T>
+    public class FichierXmlStrategy<T> : IStrategyPersistable<T> where T : new()
     {
         #region Champs et Propriétés       
         #endregion

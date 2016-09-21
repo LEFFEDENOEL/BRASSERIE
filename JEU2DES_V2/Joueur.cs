@@ -24,7 +24,7 @@ namespace JEU2DES_V2
         public int Score
         {
             get { return _Score; }
-            private set { _Score = value; }
+            set { _Score = value; }
         }
 
 
@@ -37,6 +37,10 @@ namespace JEU2DES_V2
             Nom = nom;
         }
 
+        public Joueur()
+        {
+            Nom = "joueur quelconque";
+        }
 
         #endregion
 

@@ -18,7 +18,7 @@ namespace JEU2DES_V2
         public Chiffre Valeur
         {
             get { return _Valeur; }
-            private set { _Valeur = value; }
+            set { _Valeur = value; }
         }
 
         private static Random _Random = new Random();
@@ -33,6 +33,10 @@ namespace JEU2DES_V2
 
         #region Constructeurs
 
+        public De()
+        {
+
+        }
 
 
         #endregion
