@@ -16,7 +16,7 @@ namespace ConsoleJEU2DES
             //IStrategyPersistable<Jeu> obj = (IStrategyPersistable<Jeu>)new Jeu();
             
 
-            Classement classement;
+            
 
             Console.WriteLine("Persistance ? Tapez :\n" +
                               "- 1 pour du binaire\n" +
@@ -29,7 +29,7 @@ namespace ConsoleJEU2DES
 
             IStrategyPersistable<Classement> strategieDePersistance = Factory.IStrategyPersistable((ChoixPersistance)choice);
 
-
+            Classement classement;
             classement = new Classement(strategieDePersistance);
 
 
